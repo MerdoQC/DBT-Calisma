@@ -6,7 +6,6 @@ models:
     description: "Product staging modeli."
 
     columns:
-
       - name: products_id
         description: "Ürün benzersiz kimliği."
         tests:
@@ -21,12 +20,41 @@ models:
     description: "Kargo verilerinin staging modeli."
 
     columns:
-
       - name: orders_id
         description: "Sipariş ID."
+        tests:
+          - not_null
+          - unique
 
       - name: shipping_fee
         description: "Kargo ücreti."
 
       - name: logcost
         description: "FLOAT64 lojistik maliyeti."
+
+      - name: ship_cost
+        description: "Gönderim maliyeti."
+
+
+  - name: stg_raw__raw_gz_sales
+    description: "Sales staging modeli."
+
+    columns:
+      - name: date_date
+        description: "Satış tarihi."
+
+      - name: orders_id
+        description: "Sipariş ID."
+        tests:
+          - not_null
+
+      - name: products_id
+        description: "Ürün ID."
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "Satış geliri."
+
+      - name: quantity
+        description: "Satılan ürün miktarı."
