@@ -1,0 +1,32 @@
+version: 2
+
+models:
+
+  - name: stg_raw__raw_product
+    description: "Product staging modeli."
+
+    columns:
+
+      - name: products_id
+        description: "Ürün benzersiz kimliği."
+        tests:
+          - not_null
+          - unique
+
+      - name: purchase_price
+        description: "FLOAT64 tipine dönüştürülmüş satın alma fiyatı."
+
+
+  - name: stg_raw__raw_gz_ship
+    description: "Kargo verilerinin staging modeli."
+
+    columns:
+
+      - name: orders_id
+        description: "Sipariş ID."
+
+      - name: shipping_fee
+        description: "Kargo ücreti."
+
+      - name: logcost
+        description: "FLOAT64 lojistik maliyeti."
